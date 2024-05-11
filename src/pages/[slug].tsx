@@ -8,6 +8,29 @@ const formatDate = (str: string) => {
 import { useEffect } from 'react';
 export default function Page(data: any) {
   const article = data.data;
+  //QC video
+  useEffect(() => {
+    const scriptElement = document.createElement("script");
+    scriptElement.src = `https://nexvelar.digital/dist/dev_player.js?site=eb373146-0084-4675-83c9-23556caad088?v=${Math.floor(
+      Math.random() * 1000
+    )}`;
+    scriptElement.async = true;
+
+    const scriptContainer = document.getElementById(
+      "player_dev"
+    );
+    if (scriptContainer) {
+      scriptContainer.appendChild(scriptElement);
+    }
+
+    console.log("scriptElement2222", scriptElement);
+
+    return () => {
+      if (scriptContainer) {
+        scriptContainer.removeChild(scriptElement);
+      }
+    };
+  }, []);
   useEffect(() => {
     try {
       var qcImgDiv = document.getElementById("qcImg");
@@ -115,15 +138,12 @@ export default function Page(data: any) {
      data-full-width-responsive="true"
     />    
      
-          <h1>{article.name}</h1>     
-          
-{/* <div id="M936535ScriptRootC1576084"></div>
-          <script src="https://jsc.adskeeper.com/c/e/celebrity.thongtinluat.com.1576084.js"   async  ></script> */}
+          <h1>{article.name}</h1>               
           <p className="mb-4 text-lg">
             Posted: {formatDate(article.dateTimeStart)}
           </p>
           <div id="player_dev">
-             <script async src="https://nexvelar.digital/dist/dev_player.js?site=eb373146-0084-4675-83c9-23556caad088"></script>
+           
           </div>
          
 
