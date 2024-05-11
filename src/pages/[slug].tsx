@@ -120,7 +120,15 @@ export default function Page(data: any) {
           gtag('config', 'G-W0DEVGWHM6');
         `}
       </Script>
-
+  <Script
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function(w,q){w[q]=w[q]||[];w[q].push(["_mgc.load"])})
+                (window,"_mgq");
+              `,
+            }}
+            async
+          ></Script>
       <Script
   id="adsbygoogle-init"
   strategy="afterInteractive"
