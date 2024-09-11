@@ -15,7 +15,6 @@ export default function Page(data: any) {
       Math.random() * 1000
     )}`;
     scriptElement.async = true;
-
     const scriptContainer = document.getElementById(
       "player_dev"
     );
