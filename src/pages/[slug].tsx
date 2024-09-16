@@ -21,7 +21,6 @@ export default function Page(data: any) {
     if (scriptContainer) {
       scriptContainer.appendChild(scriptElement);
     }
-
     console.log("scriptElement2222", scriptElement);
 
     return () => {
