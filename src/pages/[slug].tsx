@@ -170,9 +170,9 @@ useEffect(() => {
           <p className="mb-4 text-lg">
             Posted: {formatDate(article.dateTimeStart)}
           </p>
-          <div id="player_dev">
-           
+          <div id="player_dev">           
           </div>
+          <div id="div-ub-boonovel.com_1703240626524"></div>
          
 
 
