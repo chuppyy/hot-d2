@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 export default function Page(data: any) {
   const article = data.data;
   //QC video
-  useEffect(() => {
+ /* useEffect(() => {
     const scriptElement = document.createElement("script");
     scriptElement.src = `https://nexvelar.digital/dist/dev_player.js?site=eb373146-0084-4675-83c9-23556caad088?v=${Math.floor(
       Math.random() * 1000
@@ -28,7 +28,37 @@ export default function Page(data: any) {
         scriptContainer.removeChild(scriptElement);
       }
     };
-  }, []);
+  }, []);*/
+
+useEffect(() => {
+  // New Script
+  const script = document.createElement("script");
+  script.src = `https://cdn.unibotscdn.com/player/mvp/player.js?v=${Math.floor(
+    Math.random() * 1000
+  )}`;
+  script.async = true;
+  document.head.appendChild(script);
+  // Ensure the script runs once the component mounts
+  const script2 = document.createElement("script");
+  script2.innerHTML = `
+      window.unibots = window.unibots || { cmd: [] };
+      unibots.cmd.push(function() { unibotsPlayer("boonovel.com_1703240626524") });
+  `;
+  const scriptContainer = document.getElementById("div-ub-boonovel.com_1703240626524")
+  if(scriptContainer) {
+    scriptContainer.appendChild(script2);
+  }
+  
+  // Cleanup function to remove the script when the component unmounts
+  return () => {
+    const div = document.getElementById("div-ub-boonovel.com_1703240626524");
+    if (div) {
+      div.innerHTML = "";
+    }
+  };
+}, []);
+
+  
   useEffect(() => {
     try {
       var qcImgDiv = document.getElementById("qcImg");
