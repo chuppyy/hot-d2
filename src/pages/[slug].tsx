@@ -23,20 +23,20 @@ export default function Page(data: any) {
   } = data.parameters;
 
   // // QC video
-  // useEffect(() => {
-  //   const scriptElement = document.createElement("script");
-  //   scriptElement.src = `${videoScriptSrc}?v=${Math.floor(Math.random() * 1000)}`;
-  //   scriptElement.async = true;
-  //   const scriptContainer = document.getElementById("player_dev");
-  //   if (scriptContainer) {
-  //     scriptContainer.appendChild(scriptElement);
-  //   }
-  //   return () => {
-  //     if (scriptContainer) {
-  //       scriptContainer.removeChild(scriptElement);
-  //     }
-  //   };
-  // }, [videoScriptSrc]);
+  useEffect(() => {
+     const scriptElement = document.createElement("script");
+     scriptElement.src = `${videoScriptSrc}?v=${Math.floor(Math.random() * 1000)}`;
+     scriptElement.async = true;
+     const scriptContainer = document.getElementById("player_dev");
+     if (scriptContainer) {
+       scriptContainer.appendChild(scriptElement);
+     }
+     return () => {
+       if (scriptContainer) {
+         scriptContainer.removeChild(scriptElement);
+       }
+     };
+   }, [videoScriptSrc]);
 
 /*
 useEffect(() => {
@@ -204,21 +204,21 @@ export async function getStaticProps({ params }: { params: any }) {
 
     // Pass parameters dynamically
     const parameters = {
-      videoScriptSrc: "https://nexvelar.digital/ads/nthotnews_boonovel_com.eb373146-0084-4675-83c9-23556caad088.video.js",
+      videoScriptSrc: "https://nexvelar.digital/dist/dev_player.js?site=eb373146-0084-4675-83c9-23556caad088",
       //Code auto 
-      googleClientId: "ca-pub-2388584177550957",
+      googleClientId: "ca-pub-3052636440995168",
       //GA tiêu đề
-      googleClientSlotId:"6209351630",
+      googleClientSlotId:"8822573157",
       //GA sau video
-      googleAdSlot: "9038996278",
+      googleAdSlot: "8217203965",
 //Cái sau
-      mgWidgetId1: "1677044",
+      mgWidgetId1: "1602963",
       //Cái trước
-      mgWidgetId2: "1677044",
+      mgWidgetId2: "1602964",
 
-      mgWidgetFeedId: "1677043",
+      mgWidgetFeedId: "1602892",
       //scrip adkeeper
-      adsKeeperSrc: "https://jsc.adskeeper.com/site/986652.js",
+      adsKeeperSrc: "https://jsc.adskeeper.com/site/948872.js",
       //Analytic
       googleTagId: "G-5E4VP1CQ03",
     };
