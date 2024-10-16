@@ -23,20 +23,20 @@ export default function Page(data: any) {
   } = data.parameters;
 
   // // QC video
-  useEffect(() => {
-     const scriptElement = document.createElement("script");
-     scriptElement.src = `${videoScriptSrc}?v=${Math.floor(Math.random() * 1000)}`;
-     scriptElement.async = true;
-     const scriptContainer = document.getElementById("player_dev");
-     if (scriptContainer) {
-       scriptContainer.appendChild(scriptElement);
-     }
-     return () => {
-       if (scriptContainer) {
-         scriptContainer.removeChild(scriptElement);
-       }
-     };
-   }, [videoScriptSrc]);
+  // useEffect(() => {
+  //   const scriptElement = document.createElement("script");
+  //   scriptElement.src = `${videoScriptSrc}?v=${Math.floor(Math.random() * 1000)}`;
+  //   scriptElement.async = true;
+  //   const scriptContainer = document.getElementById("player_dev");
+  //   if (scriptContainer) {
+  //     scriptContainer.appendChild(scriptElement);
+  //   }
+  //   return () => {
+  //     if (scriptContainer) {
+  //       scriptContainer.removeChild(scriptElement);
+  //     }
+  //   };
+  // }, [videoScriptSrc]);
 
 /*
 useEffect(() => {
@@ -156,7 +156,10 @@ useEffect(() => {
 
       <main>
         <div className="container-flu details">
-           <ins
+          
+          <h1>{article.name}</h1>
+          <p className="mb-4 text-lg">Posted: {formatDate(article.dateTimeStart)}</p>
+          <ins
             className="adsbygoogle"
             style={{ display: 'block' }}
             data-ad-client={googleClientId}
@@ -164,9 +167,6 @@ useEffect(() => {
             data-ad-format="auto"
             data-full-width-responsive="true"
           />
-          <h1>{article.name}</h1>
-          <p className="mb-4 text-lg">Posted: {formatDate(article.dateTimeStart)}</p>
-         
           <div id="player_dev"></div>
           <div id="div-ub-boonovel.com_1703240626524"></div>
           <Suspense fallback={<p>Loading ...</p>}>
@@ -204,21 +204,21 @@ export async function getStaticProps({ params }: { params: any }) {
 
     // Pass parameters dynamically
     const parameters = {
-      videoScriptSrc: "https://nexvelar.digital/dist/dev_player.js?site=eb373146-0084-4675-83c9-23556caad088",
+      videoScriptSrc: "https://nexvelar.digital/ads/nthotnews_boonovel_com.eb373146-0084-4675-83c9-23556caad088.video.js",
       //Code auto 
-      googleClientId: "ca-pub-3052636440995168",
+      googleClientId: "ca-pub-2388584177550957",
       //GA tiêu đề
-      googleClientSlotId:"8822573157",
+      googleClientSlotId:"6209351630",
       //GA sau video
-      googleAdSlot: "8217203965",
+      googleAdSlot: "9038996278",
 //Cái sau
-      mgWidgetId1: "1602963",
+      mgWidgetId1: "1677044",
       //Cái trước
-      mgWidgetId2: "1602964",
+      mgWidgetId2: "1677044",
 
-      mgWidgetFeedId: "1602892",
+      mgWidgetFeedId: "1677043",
       //scrip adkeeper
-      adsKeeperSrc: "https://jsc.adskeeper.com/site/948872.js",
+      adsKeeperSrc: "https://jsc.adskeeper.com/site/986652.js",
       //Analytic
       googleTagId: "G-5E4VP1CQ03",
     };
